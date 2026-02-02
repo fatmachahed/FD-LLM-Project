@@ -78,9 +78,7 @@ DATASETS = {
     }
 }
 
-# =========================
-# UTILS
-# =========================
+
 def make_unique(columns):
     """Ensure column names are unique"""
     seen = {}
