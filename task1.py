@@ -1,5 +1,4 @@
 import streamlit as st
-import re
 import pandas as pd
 from collections import Counter
 from pathlib import Path
@@ -9,125 +8,68 @@ from pathlib import Path
 # =========================
 DATASETS = {
     "iris": {
-        "data_file": "data/iris/iris.data",
-        "fd_file": "data/iris/iris_fds.txt",
-        "names_file": "data/iris/iris.names",
-        "has_header": False
+        "data_file": "data/iris/iris.csv",
+        "fd_file": "data/iris/iris_fds.txt"
     },
-
     "adult": {
-        "data_file": "data/adult/adult.data",
-        "fd_file": "data/adult/adult_fds.txt",
-        "has_header": False,
-        "columns": [
-            "age", "workclass", "fnlwgt", "education", "education_num",
-            "marital_status", "occupation", "relationship", "race", "sex",
-            "capital_gain", "capital_loss", "hours_per_week",
-            "native_country", "income"
-        ]
+        "data_file": "data/adult/adult.csv",
+        "fd_file": "data/adult/adult_fds.txt"
     },
-
     "balance_scale": {
-        "data_file": "data/balance+scale/balance-scale.data",
-        "fd_file": "data/balance+scale/balance-scale_fds.txt",
-        "has_header": False,
-        "columns": [
-            "class",
-            "left_weight",
-            "left_distance",
-            "right_weight",
-            "right_distance"
-        ]
+        "data_file": "data/balance+scale/balance-scale.csv",
+        "fd_file": "data/balance+scale/balance-scale_fds.txt"
     },
-
     "breast_cancer_wisconsin": {
-        "data_file": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin.data",
-        "fd_file": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin_fds.txt",
-        "has_header": False,
-        "columns": [
-            "sample_code_number",
-            "clump_thickness",
-            "uniformity_cell_size",
-            "uniformity_cell_shape",
-            "marginal_adhesion",
-            "single_epithelial_cell_size",
-            "bare_nuclei",
-            "bland_chromatin",
-            "normal_nucleoli",
-            "mitoses",
-            "class"
-        ]
+        "data_file": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin.csv",
+        "fd_file": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin_fds.txt"
     },
-
     "nursery": {
-        "data_file": "data/nursery/nursery.data",
-        "fd_file": "data/nursery/nursery_fds.txt",
-        "names_file": "data/nursery/nursery.names",
-        "has_header": False,
-        "columns": [
-            "parents",
-            "has_nurs",
-            "form",
-            "children",
-            "housing",
-            "finance",
-            "social",
-            "health",
-            "class"
-        ]
+        "data_file": "data/nursery/nursery.csv",
+        "fd_file": "data/nursery/nursery_fds.txt"
     }
 }
 
 # =========================
-# UTILS
+# UTILS (RÉUTILISABLES)
 # =========================
+def list_datasets():
+    """Retourne la liste des datasets disponibles"""
+    return list(DATASETS.keys())
+
+
+def load_dataset(dataset_name: str):
+    """Charge un dataset CSV et retourne le DataFrame"""
+    if dataset_name not in DATASETS:
+        raise ValueError(f"Dataset inconnu : {dataset_name}")
+
+    path = DATASETS[dataset_name]["data_file"]
+    return pd.read_csv(path)
+
+
 def make_unique(columns):
     """Ensure column names are unique"""
     seen = {}
     result = []
+
     for c in columns:
+        c = str(c).strip()
         if c not in seen:
             seen[c] = 0
             result.append(c)
         else:
             seen[c] += 1
             result.append(f"{c}_{seen[c]}")
+
     return result
 
 
-def extract_columns_from_names(names_file):
-    """Extract attribute names from .names file"""
-    columns = []
-    in_attr_section = False
-
-    with open(names_file, "r") as f:
-        for line in f:
-            line = line.strip()
-
-            if "Attribute Information" in line:
-                in_attr_section = True
-                continue
-
-            if in_attr_section:
-                if line == "" or line.lower().startswith("summary"):
-                    break
-
-                match = re.match(r"^\d+\.\s*([a-zA-Z0-9_\- ]+)", line)
-                if match:
-                    col = (
-                        match.group(1)
-                        .lower()
-                        .replace(" ", "_")
-                        .replace("-", "_")
-                    )
-                    columns.append(col)
-
-    columns.append("class")
-    return make_unique(columns)
-
-
 def load_fds(fd_file, column_names):
-    """Load functional dependencies from file"""
+    """
+    Load functional dependencies from file.
+    Format :
+    # RESULTS
+    1,2,3->4
+    """
     fds = []
 
     if not Path(fd_file).exists():
@@ -139,21 +81,27 @@ def load_fds(fd_file, column_names):
         for line in f:
             line = line.strip()
 
-            if line.startswith("# RESULTS"):
-                in_results = True
+            if not line:
+                continue
+
+            if line.startswith("#"):
+                if "RESULTS" in line:
+                    in_results = True
                 continue
 
             if in_results and "->" in line:
-                lhs, rhs = line.split("->")
-                lhs_idx = [int(i) - 1 for i in lhs.split(",")]
-                rhs_idx = int(rhs) - 1
-
                 try:
-                    fds.append(
-                        ([column_names[i] for i in lhs_idx], column_names[rhs_idx])
-                    )
-                except IndexError:
-                    pass  # FD invalide
+                    lhs, rhs = line.split("->")
+                    lhs_idx = [int(i.strip()) - 1 for i in lhs.split(",")]
+                    rhs_idx = int(rhs.strip()) - 1
+
+                    lhs_cols = [column_names[i] for i in lhs_idx]
+                    rhs_col = column_names[rhs_idx]
+
+                    fds.append((lhs_cols, rhs_col))
+
+                except Exception:
+                    continue
 
     return fds
 
@@ -164,36 +112,34 @@ def load_fds(fd_file, column_names):
 def run_task1():
     st.header("🧠 Task 1 — Algorithmic Functional Dependency Analysis")
 
-    dataset_name = st.selectbox("Choisir un dataset", list(DATASETS.keys()))
+    dataset_name = st.selectbox(
+        "Choisir un dataset",
+        list_datasets()
+    )
+
     cfg = DATASETS[dataset_name]
 
-    # -------- LOAD COLUMNS --------
-    if dataset_name == "iris":
-        columns = extract_columns_from_names(cfg["names_file"])
-    else:
-        columns = make_unique(cfg["columns"])
+    try:
+        df = load_dataset(dataset_name)
+    except Exception as e:
+        st.error(f"Erreur chargement dataset : {e}")
+        return
+
+    columns = make_unique(df.columns.tolist())
+    df.columns = columns
 
     with st.expander("🔍 Colonnes détectées"):
         st.write(columns)
 
-    # -------- LOAD DATA --------
-    df = pd.read_csv(
-        cfg["data_file"],
-        header=None if not cfg["has_header"] else "infer",
-        names=columns
-    )
-
-    # -------- LOAD FDs --------
     fds = load_fds(cfg["fd_file"], columns)
 
-    # Save for Task 2
+    # --- Save for Task 2 ---
     st.session_state["fds"] = fds
     st.session_state["df_columns"] = columns
     st.session_state["dataset_name"] = dataset_name
 
-    # -------- STATISTICS --------
+    # --- Stats ---
     st.subheader("📊 Statistiques générales")
-
     c1, c2, c3 = st.columns(3)
     c1.metric("Nb lignes", df.shape[0])
     c2.metric("Nb colonnes", df.shape[1])
@@ -205,7 +151,7 @@ def run_task1():
     else:
         st.write("**Taille moyenne du LHS :** N/A")
 
-    # -------- FREQUENCIES --------
+    # --- Frequencies ---
     st.subheader("📈 Fréquence des attributs")
 
     lhs_counter = Counter()
@@ -219,42 +165,31 @@ def run_task1():
 
     with col1:
         st.markdown("**LHS**")
-        st.dataframe(
-            pd.DataFrame(lhs_counter.items(), columns=["Attribut", "Fréquence"])
-        )
+        st.dataframe(pd.DataFrame(lhs_counter.items(), columns=["Attribut", "Fréquence"]))
 
     with col2:
         st.markdown("**RHS**")
-        st.dataframe(
-            pd.DataFrame(rhs_counter.items(), columns=["Attribut", "Fréquence"])
-        )
+        st.dataframe(pd.DataFrame(rhs_counter.items(), columns=["Attribut", "Fréquence"]))
 
-    # -------- DISPLAY FDs --------
+    # --- Display FDs ---
     st.subheader("🔗 Dépendances Fonctionnelles")
+    for lhs, rhs in fds:
+        st.code(f"{', '.join(lhs)} → {rhs}")
 
-    if fds:
-        for lhs, rhs in fds:
-            st.code(f"{', '.join(lhs)} → {rhs}")
-    else:
-        st.info("Aucune FD trouvée")
-
-    # -------- SUSPICIOUS FDs --------
+    # --- Suspicious ---
     st.subheader("⚠️ FDs suspectes")
-
-    suspicious_found = False
+    suspicious = False
 
     for lhs, rhs in fds:
         if len(lhs) == 1 and lhs[0].lower() in ["id", "index"]:
             st.warning(f"ID-based : {lhs[0]} → {rhs}")
-            suspicious_found = True
-
+            suspicious = True
         elif len(lhs) >= 4:
-            st.warning(f"LHS très large : {', '.join(lhs)} → {rhs}")
-            suspicious_found = True
-
+            st.warning(f"LHS large : {', '.join(lhs)} → {rhs}")
+            suspicious = True
         elif rhs in lhs:
             st.warning(f"Dégénérée : {', '.join(lhs)} → {rhs}")
-            suspicious_found = True
+            suspicious = True
 
-    if not suspicious_found:
+    if not suspicious:
         st.success("Aucune FD suspecte détectée")
