@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "FD": "Shucked weight, Length, Whole weight, Sex -> Diameter",
+      "LLM_judgment": "unlikely",
+      "Human_judgment": "meaningful",
+      "Agreement": false
+    },
+    {
+      "FD": "Shucked weight, Length, Whole weight, Sex -> Height",
+      "LLM_judgment": "unlikely",
+      "Human_judgment": "degenerate",
+      "Agreement": false
+    },
+    {
+      "FD": "Shucked weight, Length, Whole weight, Sex -> Viscera weight",
+      "LLM_judgment": "accidental",
+      "Human_judgment": "accidental",
+      "Agreement": true
+    },
+    {
+      "FD": "Viscera weight, Shell weight, Whole weight -> Sex",
+      "LLM_judgment": "accidental",
+      "Human_judgment": "unlikely",
+      "Agreement": false
+    },
+    {
+      "FD": "Viscera weight, Shell weight, Whole weight -> Length",
+      "LLM_judgment": "accidental",
+      "Human_judgment": "meaningful",
+      "Agreement": false
+    },
+    {
+      "FD": "Viscera weight, Shell weight, Whole weight -> Diameter",
+      "LLM_judgment": "accidental",
+      "Human_judgment": "meaningful",
+      "Agreement": false
+    }
+  ],
+  "agreement_rate": 0.16666666666666666
+}

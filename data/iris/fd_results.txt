@@ -1,0 +1,7 @@
+=== SUSPICIOUS FDs ===
+
+=== PLAUSIBLE FDs ===
+petal_length, sepal_width, sepal_length -> class
+petal_width, sepal_width, sepal_length -> class
+petal_width, petal_length, sepal_length -> class
+petal_width, petal_length, sepal_width -> class

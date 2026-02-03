@@ -1,0 +1,4 @@
+=== SUSPICIOUS FDs ===
+LHS très large : children, form, housing, social, has_nurs, health, parents -> class
+
+=== PLAUSIBLE FDs ===

@@ -1,0 +1,10 @@
+[
+  {
+    "FD": "TYPE -> MATERIAL",
+    "violations": 2,
+    "approx_validity": 0.75,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  }
+]

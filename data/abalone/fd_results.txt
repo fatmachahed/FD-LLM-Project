@@ -1,0 +1,140 @@
+=== SUSPICIOUS FDs ===
+LHS très large : Shucked weight, Length, Whole weight, Sex -> Diameter
+LHS très large : Shucked weight, Length, Whole weight, Sex -> Height
+LHS très large : Shucked weight, Length, Whole weight, Sex -> Viscera weight
+LHS très large : Shucked weight, Length, Whole weight, Sex -> Shell weight
+LHS très large : Viscera weight, Whole weight, Rings, Sex -> Length
+LHS très large : Viscera weight, Whole weight, Rings, Sex -> Diameter
+LHS très large : Viscera weight, Whole weight, Rings, Sex -> Height
+LHS très large : Viscera weight, Whole weight, Rings, Sex -> Shucked weight
+LHS très large : Viscera weight, Whole weight, Rings, Sex -> Shell weight
+LHS très large : Shell weight, Diameter, Length, Whole weight -> Sex
+LHS très large : Shell weight, Diameter, Length, Whole weight -> Height
+LHS très large : Shell weight, Diameter, Length, Whole weight -> Shucked weight
+LHS très large : Shell weight, Diameter, Length, Whole weight -> Viscera weight
+LHS très large : Shell weight, Diameter, Length, Whole weight -> Rings
+LHS très large : Height, Viscera weight, Shucked weight, Whole weight -> Length
+LHS très large : Height, Viscera weight, Shucked weight, Whole weight -> Shell weight
+LHS très large : Height, Viscera weight, Shucked weight, Whole weight -> Rings
+LHS très large : Height, Viscera weight, Shell weight, Shucked weight -> Sex
+LHS très large : Height, Viscera weight, Shell weight, Shucked weight -> Length
+LHS très large : Height, Viscera weight, Shell weight, Shucked weight -> Diameter
+LHS très large : Height, Viscera weight, Shell weight, Shucked weight -> Whole weight
+LHS très large : Height, Viscera weight, Shell weight, Shucked weight -> Rings
+LHS très large : Height, Viscera weight, Length, Whole weight -> Sex
+LHS très large : Height, Viscera weight, Length, Whole weight -> Diameter
+LHS très large : Height, Viscera weight, Length, Whole weight -> Shucked weight
+LHS très large : Height, Viscera weight, Length, Whole weight -> Shell weight
+LHS très large : Height, Viscera weight, Length, Whole weight -> Rings
+LHS très large : Viscera weight, Shucked weight, Length, Whole weight -> Height
+LHS très large : Viscera weight, Shucked weight, Length, Whole weight -> Shell weight
+LHS très large : Viscera weight, Shucked weight, Whole weight, Rings -> Length
+LHS très large : Viscera weight, Shucked weight, Whole weight, Rings -> Height
+LHS très large : Viscera weight, Shucked weight, Whole weight, Rings -> Shell weight
+LHS très large : Viscera weight, Shucked weight, Length, Rings -> Sex
+LHS très large : Viscera weight, Shucked weight, Length, Rings -> Diameter
+LHS très large : Viscera weight, Shucked weight, Length, Rings -> Height
+LHS très large : Viscera weight, Shucked weight, Length, Rings -> Whole weight
+LHS très large : Viscera weight, Shucked weight, Length, Rings -> Shell weight
+LHS très large : Height, Shucked weight, Diameter, Whole weight -> Length
+LHS très large : Height, Shucked weight, Diameter, Whole weight -> Shell weight
+LHS très large : Height, Shucked weight, Diameter, Whole weight -> Rings
+LHS très large : Viscera weight, Diameter, Whole weight, Rings -> Length
+LHS très large : Viscera weight, Diameter, Whole weight, Rings -> Height
+LHS très large : Viscera weight, Diameter, Whole weight, Rings -> Shucked weight
+LHS très large : Viscera weight, Diameter, Whole weight, Rings -> Shell weight
+LHS très large : Shucked weight, Diameter, Length, Whole weight -> Height
+LHS très large : Shucked weight, Diameter, Length, Whole weight -> Shell weight
+LHS très large : Shucked weight, Diameter, Whole weight, Rings -> Length
+LHS très large : Shucked weight, Diameter, Whole weight, Rings -> Height
+LHS très large : Shucked weight, Diameter, Whole weight, Rings -> Shell weight
+LHS très large : Height, Viscera weight, Shucked weight, Rings -> Sex
+LHS très large : Height, Viscera weight, Shucked weight, Rings -> Length
+LHS très large : Height, Viscera weight, Shucked weight, Rings -> Diameter
+LHS très large : Height, Viscera weight, Shucked weight, Rings -> Whole weight
+LHS très large : Height, Viscera weight, Shucked weight, Rings -> Shell weight
+LHS très large : Viscera weight, Length, Whole weight, Rings -> Sex
+LHS très large : Viscera weight, Length, Whole weight, Rings -> Diameter
+LHS très large : Viscera weight, Length, Whole weight, Rings -> Height
+LHS très large : Viscera weight, Length, Whole weight, Rings -> Shucked weight
+LHS très large : Viscera weight, Length, Whole weight, Rings -> Shell weight
+LHS très large : Height, Shucked weight, Length, Whole weight -> Sex
+LHS très large : Height, Shucked weight, Length, Whole weight -> Diameter
+LHS très large : Height, Shucked weight, Length, Whole weight -> Viscera weight
+LHS très large : Height, Shucked weight, Length, Whole weight -> Shell weight
+LHS très large : Height, Viscera weight, Shucked weight, Diameter -> Length
+LHS très large : Height, Viscera weight, Shucked weight, Length -> Diameter
+LHS très large : Viscera weight, Shell weight, Shucked weight, Diameter -> Sex
+LHS très large : Viscera weight, Shell weight, Shucked weight, Length -> Sex
+LHS très large : Viscera weight, Shucked weight, Length, Sex -> Shell weight
+LHS très large : Viscera weight, Shucked weight, Length, Sex -> Diameter
+LHS très large : Height, Diameter, Length, Whole weight -> Sex
+LHS très large : Height, Length, Whole weight, Rings -> Sex
+LHS très large : Shell weight, Length, Whole weight, Rings -> Sex
+LHS très large : Viscera weight, Shucked weight, Rings, Sex -> Shell weight
+LHS très large : Height, Viscera weight, Whole weight, Sex -> Diameter
+LHS très large : Viscera weight, Shucked weight, Diameter, Rings -> Sex
+LHS très large : Viscera weight, Shucked weight, Rings, Sex -> Diameter
+LHS très large : Viscera weight, Shell weight, Shucked weight, Length -> Diameter
+LHS très large : Viscera weight, Shucked weight, Diameter, Rings -> Shell weight
+LHS très large : Height, Shell weight, Diameter, Whole weight -> Sex
+LHS très large : Height, Viscera weight, Diameter, Length, Rings -> Sex
+LHS très large : Height, Viscera weight, Diameter, Length, Rings -> Whole weight
+LHS très large : Height, Viscera weight, Diameter, Length, Rings -> Shucked weight
+LHS très large : Height, Viscera weight, Diameter, Length, Rings -> Shell weight
+LHS très large : Height, Diameter, Length, Whole weight, Rings -> Shucked weight
+LHS très large : Height, Diameter, Length, Whole weight, Rings -> Viscera weight
+LHS très large : Height, Diameter, Length, Whole weight, Rings -> Shell weight
+LHS très large : Height, Viscera weight, Shucked weight, Diameter, Sex -> Whole weight
+LHS très large : Height, Viscera weight, Shucked weight, Diameter, Sex -> Shell weight
+LHS très large : Height, Viscera weight, Shucked weight, Diameter, Sex -> Rings
+LHS très large : Viscera weight, Shell weight, Diameter, Length, Rings -> Sex
+LHS très large : Viscera weight, Shell weight, Diameter, Length, Rings -> Height
+LHS très large : Viscera weight, Shell weight, Diameter, Length, Rings -> Whole weight
+LHS très large : Viscera weight, Shell weight, Diameter, Length, Rings -> Shucked weight
+LHS très large : Viscera weight, Shell weight, Length, Rings, Sex -> Diameter
+LHS très large : Viscera weight, Shell weight, Length, Rings, Sex -> Height
+LHS très large : Viscera weight, Shell weight, Length, Rings, Sex -> Whole weight
+LHS très large : Viscera weight, Shell weight, Length, Rings, Sex -> Shucked weight
+LHS très large : Height, Viscera weight, Shucked weight, Length, Sex -> Whole weight
+LHS très large : Height, Viscera weight, Shucked weight, Length, Sex -> Rings
+LHS très large : Height, Shell weight, Diameter, Whole weight, Rings -> Length
+LHS très large : Height, Shell weight, Diameter, Whole weight, Rings -> Shucked weight
+LHS très large : Height, Shell weight, Diameter, Whole weight, Rings -> Viscera weight
+LHS très large : Height, Shell weight, Whole weight, Rings, Sex -> Length
+LHS très large : Height, Shell weight, Length, Whole weight, Sex -> Rings
+LHS très large : Height, Viscera weight, Shell weight, Diameter, Rings -> Sex
+LHS très large : Height, Viscera weight, Shell weight, Diameter, Sex -> Rings
+LHS très large : Viscera weight, Shell weight, Diameter, Length, Sex -> Shucked weight
+LHS très large : Shell weight, Shucked weight, Diameter, Length, Rings -> Sex
+LHS très large : Height, Shell weight, Shucked weight, Length, Rings -> Sex
+LHS très large : Height, Shell weight, Shucked weight, Length, Sex -> Rings
+LHS très large : Height, Shell weight, Shucked weight, Diameter, Rings -> Sex
+LHS très large : Height, Viscera weight, Shell weight, Diameter, Length, Sex -> Whole weight
+LHS très large : Height, Shucked weight, Diameter, Length, Rings, Sex -> Whole weight
+LHS très large : Height, Shucked weight, Diameter, Length, Rings, Sex -> Viscera weight
+LHS très large : Height, Shucked weight, Diameter, Length, Rings, Sex -> Shell weight
+LHS très large : Height, Shell weight, Shucked weight, Diameter, Length, Sex -> Whole weight
+LHS très large : Height, Shell weight, Shucked weight, Diameter, Length, Sex -> Viscera weight
+LHS très large : Height, Shell weight, Shucked weight, Diameter, Length, Rings -> Whole weight
+LHS très large : Height, Shell weight, Shucked weight, Diameter, Length, Rings -> Viscera weight
+
+=== PLAUSIBLE FDs ===
+Viscera weight, Shell weight, Whole weight -> Sex
+Viscera weight, Shell weight, Whole weight -> Length
+Viscera weight, Shell weight, Whole weight -> Diameter
+Viscera weight, Shell weight, Whole weight -> Height
+Viscera weight, Shell weight, Whole weight -> Shucked weight
+Viscera weight, Shell weight, Whole weight -> Rings
+Shell weight, Shucked weight, Whole weight -> Sex
+Shell weight, Shucked weight, Whole weight -> Length
+Shell weight, Shucked weight, Whole weight -> Diameter
+Shell weight, Shucked weight, Whole weight -> Height
+Shell weight, Shucked weight, Whole weight -> Viscera weight
+Shell weight, Shucked weight, Whole weight -> Rings
+Viscera weight, Shucked weight, Whole weight -> Sex
+Shucked weight, Length, Whole weight -> Rings
+Viscera weight, Shucked weight, Whole weight -> Diameter
+Shucked weight, Diameter, Whole weight -> Viscera weight
+Viscera weight, Diameter, Whole weight -> Sex
+Shucked weight, Diameter, Whole weight -> Sex

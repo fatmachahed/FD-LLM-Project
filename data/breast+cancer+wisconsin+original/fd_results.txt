@@ -1,0 +1,49 @@
+=== SUSPICIOUS FDs ===
+Dégénérée : Sample code number, Uniformity of Cell Shape -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Marginal Adhesion -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Sample code number -> Uniformity of Cell Size
+LHS très large : Uniformity of Cell Size, Sample code number, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Sample code number, Clump Thickness -> Uniformity of Cell Size
+LHS très large : Uniformity of Cell Size, Sample code number, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Sample code number, Uniformity of Cell Shape -> Uniformity of Cell Size
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Shape
+LHS très large : Uniformity of Cell Size, Sample code number, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+LHS très large : Uniformity of Cell Size, Sample code number, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Size
+LHS très large : Uniformity of Cell Size, Sample code number, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Clump Thickness -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape, Marginal Adhesion -> Uniformity of Cell Shape
+Dégénérée : Uniformity of Cell Size, Uniformity of Cell Shape -> Uniformity of Cell Shape
+
+=== PLAUSIBLE FDs ===
+Uniformity of Cell Size, Sample code number -> Uniformity of Cell Shape
+Uniformity of Cell Size, Sample code number -> Uniformity of Cell Shape
+Uniformity of Cell Size, Sample code number -> Uniformity of Cell Shape
+Uniformity of Cell Size, Sample code number -> Uniformity of Cell Shape
+Sample code number, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Sample code number -> Uniformity of Cell Shape
+Sample code number, Marginal Adhesion -> Uniformity of Cell Shape
+Sample code number, Uniformity of Cell Shape, Clump Thickness -> Uniformity of Cell Size
+Sample code number, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Size
+Sample code number, Uniformity of Cell Shape, Clump Thickness -> Uniformity of Cell Size
+Uniformity of Cell Size, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size -> Uniformity of Cell Shape
+Uniformity of Cell Size, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Marginal Adhesion, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Marginal Adhesion -> Uniformity of Cell Shape
+Uniformity of Cell Size, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Clump Thickness -> Uniformity of Cell Shape
+Uniformity of Cell Size, Marginal Adhesion -> Uniformity of Cell Shape
+Uniformity of Cell Size, Clump Thickness -> Uniformity of Cell Shape

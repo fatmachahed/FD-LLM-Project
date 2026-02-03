@@ -1,0 +1,18 @@
+[
+  {
+    "FD": "petal_length -> class",
+    "violations": 5,
+    "approx_validity": 0.8837209302325582,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  },
+  {
+    "FD": "petal_length,petal_width -> class",
+    "violations": 1,
+    "approx_validity": 0.9901960784313726,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  }
+]
