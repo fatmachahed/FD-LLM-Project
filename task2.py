@@ -10,9 +10,19 @@ from datetime import datetime
 # =========================
 # ENV
 # =========================
-load_dotenv()
+from dotenv import load_dotenv
+from pathlib import Path
+env_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path=env_path, override=True)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_MODEL = "mixtral-8x7b-32768"
+
+
+print("KEY:", GROQ_API_KEY)
+print("LEN:", len(GROQ_API_KEY) if GROQ_API_KEY else "None")
+
+
+GROQ_MODEL = "llama3-8b-8192"
+
 
 LABELS = [
     "meaningful",
@@ -128,13 +138,14 @@ Important: Return ONLY the single label word, nothing else.
         "Content-Type": "application/json"
     }
     payload = {
-        "model": GROQ_MODEL,
-        "messages": [{"role": "user", "content": prompt}],
+        "model": "llama3-8b-8192",
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
         "temperature": 0.1,
-        "max_tokens": 20,
-        "stop": ["\n"]
+        "max_tokens": 30
     }
-
+    
     try:
         response = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",

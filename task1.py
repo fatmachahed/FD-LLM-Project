@@ -7,6 +7,10 @@ from pathlib import Path
 # CONFIGURATION DES DATASETS
 # =========================
 DATASETS = {
+    "abalone": {
+        "data_file": "data/abalone/abalone.csv",
+        "fd_file": "data/abalone/abalone_fds.txt"
+    },
     "iris": {
         "data_file": "data/iris/iris.csv",
         "fd_file": "data/iris/iris_fds.txt"
@@ -26,7 +30,11 @@ DATASETS = {
     "nursery": {
         "data_file": "data/nursery/nursery.csv",
         "fd_file": "data/nursery/nursery_fds.txt"
-    }
+    },
+    # "echocardiogram": {
+    #     "data_file": "data/echocardiogram/echocardiogram.csv",
+    #     "fd_file": "data/echocardiogram/echocardiogram_fds.txt"
+    # }
 }
 
 # =========================
