@@ -2,10 +2,6 @@ import pandas as pd
 import numpy as np
 from collections import Counter, defaultdict
 
-
-# -----------------------------
-# Parse TANE FD file
-# -----------------------------
 def parse_tane(fd_path, csv_path):
     df = pd.read_csv(csv_path, engine="python", on_bad_lines="skip")
     columns = list(df.columns)
@@ -57,9 +53,6 @@ def parse_tane(fd_path, csv_path):
     return fds
 
 
-# -----------------------------
-# Task 1 analysis
-# -----------------------------
 def analyze_fds(fds):
     print("\n==============================")
     print("TASK 1 – FD STRUCTURE ANALYSIS")
@@ -107,7 +100,7 @@ def analyze_fds(fds):
         if len(lhs) >= 4:
             print(f"  {lhs} -> {rhs}")
 
-    # Suspicious (simple definition: large or unique complex)
+    # Suspicious FDs
     print("\nSuspicious FDs:")
 
     for lhs, rhs in fds:
@@ -120,9 +113,7 @@ def analyze_fds(fds):
         elif rhs in lhs:
             print(f"Dégénérée : {', '.join(lhs)} → {rhs}")
 
-# -----------------------------
-# Run
-# -----------------------------
+
 if __name__ == "__main__":
 
     fds = parse_tane(
