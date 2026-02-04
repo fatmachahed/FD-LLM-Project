@@ -12,6 +12,7 @@ import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 from io import BytesIO
 from task1 import parse_fds, analyze_fds, save_fds
+from task2 import extract_fds, query_groq, LABELS 
 
 # ==================
 # CONFIGURATION
@@ -452,34 +453,20 @@ if task == "Task 1: FD Analysis":
 elif task == "Task 2: LLM Evaluation":
     st.header("🤖 Task 2: LLM Evaluation")
     st.markdown("Evaluate FDs using LLM and compare with human judgment")
-    
-    # Sélecteur de dataset
-    dataset_choice, csv_file, fd_file = dataset_selector("task2")
-    
-    can_evaluate = (dataset_choice != "Upload custom files") or fd_file
-    
-    if can_evaluate:
-        _, fd_path, is_temp = get_dataset_files(dataset_choice, csv_file, fd_file)
+    fd_file = st.file_uploader("Upload FD file", type=["txt", "json"], key="task2_fd")
+
+    if fd_file:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as f:
+            f.write(fd_file.getbuffer())
+            fd_path = Path(f.name)
         
-        if fd_path:
-            try:
-                # Parse FDs
-                if dataset_choice != "Upload custom files":
-                    csv_path = Path(DATASETS[dataset_choice]["csv"])
-                    fds = parse_fds(fd_path, csv_path)
-                else:
-                    # Pour les uploads, on a besoin du CSV aussi
-                    st.warning("⚠️ For custom uploads, please also provide the CSV file")
-                    fds = []
-                
-                if fds:
-                    # Nombre de FDs à évaluer
-                    num_to_eval = st.slider("Number of FDs to evaluate", 3, min(20, len(fds)), 6)
-                    
-                    # Sélection: plausible et suspicieuses
-                    # Simple: prendre les premières N
-                    fds_to_eval = [f"{', '.join(lhs)} → {rhs}" for lhs, rhs in fds[:num_to_eval]]
-                    
+        try:
+
+                dataset_name = fd_path.stem
+
+                fds_to_eval = extract_fds(fd_path, k=3)
+
+                if fds_to_eval:
                     # Initialiser
                     if not st.session_state.eval_data or len(st.session_state.eval_data) != len(fds_to_eval):
                         st.session_state.eval_data = [
@@ -509,11 +496,8 @@ elif task == "Task 2: LLM Evaluation":
                             else:
                                 if st.button("▶️ Run", key=f"g{idx}", type="primary"):
                                     with st.spinner("Calling API..."):
-                                        result = groq_classify(item["fd"])
-                                        if result["success"]:
-                                            item["groq"] = result["label"]
-                                        else:
-                                            item["groq"] = f"ERROR: {result['error']}"
+                                        label = query_groq(item["fd"], dataset_name)
+                                        item["groq"] = label
                                         st.rerun()
                         
                         with col2:
@@ -563,29 +547,35 @@ elif task == "Task 2: LLM Evaluation":
                             st.metric("Accuracy", f"{matches/total*100:.1f}%")
                         
                         # Save
-                        output = {
-                            "dataset": dataset_choice,
-                            "model": GROQ_MODEL,
-                            "timestamp": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
-                            "evaluations": results_data,
-                            "accuracy": matches/total*100
-                        }
-                        
-                        st.download_button(
-                            "📥 Download Results",
-                            data=json.dumps(output, indent=2),
-                            file_name=f"task2_evaluation_{dataset_choice}.json",
-                            mime="application/json"
-                        )
+                        if st.button("💾 Save Results", type="primary"):
+                            output = {
+                                "model": GROQ_MODEL,
+                                "timestamp": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "evaluations": results_data,
+                                "accuracy": matches/total*100
+                            }
+                            
+                            output_file = fd_path.parent / "task2_results.json"
+                            with open(output_file, 'w') as f:
+                                json.dump(output, f, indent=2)
+                            
+                            st.success("✅ Saved!")
+                            
+                            with open(output_file, 'r') as f:
+                                st.download_button(
+                                    "📥 Download JSON",
+                                    data=f.read(),
+                                    file_name="task2_evaluation.json",
+                                    mime="application/json"
+                                )
                     else:
                         st.info("⏳ Complete all evaluations")
-            
-            except Exception as e:
-                st.error(f"❌ Error: {e}")
-            
-            finally:
-                if is_temp:
-                    os.unlink(fd_path)
+        
+        except Exception as e:
+            st.error(f"❌ Error: {e}")
+        
+        finally:
+            os.unlink(fd_path)
 
 # ==================
 # TASK 3: LLM DISCOVERY
@@ -625,9 +615,7 @@ elif task == "Task 3: LLM Discovery":
         try:
             df = pd.read_csv(csv_path, on_bad_lines='skip')
             dataset_name = dataset_choice if dataset_choice != "Upload custom file" else csv_file.name.replace('.csv', '')
-            
-            st.success(f"✅ Loaded dataset: **{dataset_name}** ({len(df)} rows, {len(df.columns)} columns)")
-            
+                        
             # Sample
             sample_size = st.slider("Sample size for LLM", 10, 100, 50, 10)
             sample = df.sample(min(sample_size, len(df)), random_state=42)
