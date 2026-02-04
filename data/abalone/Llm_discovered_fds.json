@@ -1,0 +1,42 @@
+[
+  {
+    "FD": "Length,Diameter,Height -> Whole weight",
+    "violations": 626,
+    "approx_validity": 0.8116160096298526,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  },
+  {
+    "FD": "Length,Diameter,Height -> Shucked weight",
+    "violations": 621,
+    "approx_validity": 0.813120674089678,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  },
+  {
+    "FD": "Length,Diameter,Height -> Viscera weight",
+    "violations": 625,
+    "approx_validity": 0.8119169425218177,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  },
+  {
+    "FD": "Length,Diameter,Height -> Shell weight",
+    "violations": 614,
+    "approx_validity": 0.8152272043334337,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  },
+  {
+    "FD": "Shucked weight,Viscera weight,Shell weight -> Whole weight",
+    "violations": 6,
+    "approx_validity": 0.9985614960441141,
+    "minimal": true,
+    "false_positive": true,
+    "misleading": true
+  }
+]

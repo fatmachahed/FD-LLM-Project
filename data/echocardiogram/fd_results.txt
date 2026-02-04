@@ -1,0 +1,530 @@
+=== SUSPICIOUS FDs ===
+Dégénérée : wall-motion-score, epss -> wall-motion-score
+Dégénérée : wall-motion-score, survival, epss -> wall-motion-score
+Dégénérée : wall-motion-score, survival, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, survival, age-at-heart-attack -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, age-at-heart-attack -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, age-at-heart-attack -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, survival -> wall-motion-score
+Dégénérée : still-alive, survival, epss -> still-alive
+Dégénérée : still-alive, survival, epss -> still-alive
+Dégénérée : wall-motion-score, age-at-heart-attack, fractional-shortening -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, survival -> wall-motion-score
+Dégénérée : wall-motion-score, epss, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, survival, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, survival, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, survival, age-at-heart-attack -> wall-motion-score
+Dégénérée : still-alive, epss, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, epss, age-at-heart-attack -> still-alive
+Dégénérée : wall-motion-score, epss, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, survival, epss -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, age-at-heart-attack -> wall-motion-score
+Dégénérée : pericardial-effusion, wall-motion-score, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, lvdd, epss -> wall-motion-score
+Dégénérée : wall-motion-score, lvdd, epss -> wall-motion-score
+Dégénérée : wall-motion-score, survival, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, age-at-heart-attack, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, survival -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, survival -> still-alive
+Dégénérée : wall-motion-score, survival, lvdd -> wall-motion-score
+Dégénérée : still-alive, age-at-heart-attack, fractional-shortening -> still-alive
+Dégénérée : wall-motion-score, lvdd, age-at-heart-attack -> wall-motion-score
+Dégénérée : wall-motion-score, survival, lvdd -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, lvdd, epss -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, epss -> still-alive
+Dégénérée : still-alive, pericardial-effusion, wall-motion-score -> still-alive
+Dégénérée : wall-motion-score, lvdd, fractional-shortening -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, epss -> wall-motion-score
+Dégénérée : still-alive, pericardial-effusion, lvdd -> still-alive
+Dégénérée : still-alive, pericardial-effusion, lvdd -> still-alive
+Dégénérée : still-alive, wall-motion-score, epss -> still-alive
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> wall-motion-score
+Dégénérée : still-alive, pericardial-effusion, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, pericardial-effusion, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, wall-motion-score, epss -> wall-motion-score
+Dégénérée : still-alive, lvdd, epss -> still-alive
+Dégénérée : wall-motion-score, lvdd, fractional-shortening -> wall-motion-score
+Dégénérée : still-alive, survival, lvdd -> still-alive
+Dégénérée : still-alive, epss, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, epss, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, survival, fractional-shortening -> still-alive
+Dégénérée : still-alive, survival, fractional-shortening -> still-alive
+Dégénérée : still-alive, lvdd, epss -> still-alive
+Dégénérée : wall-motion-score, survival, lvdd -> wall-motion-score
+Dégénérée : still-alive, pericardial-effusion, survival -> still-alive
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : pericardial-effusion, wall-motion-score, epss, fractional-shortening -> survival
+LHS très large : pericardial-effusion, wall-motion-score, epss, fractional-shortening -> still-alive
+LHS très large : pericardial-effusion, wall-motion-score, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : pericardial-effusion, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : pericardial-effusion, wall-motion-score, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, lvdd, epss -> survival
+LHS très large : still-alive, pericardial-effusion, lvdd, epss -> age-at-heart-attack
+LHS très large : pericardial-effusion, wall-motion-score, lvdd, fractional-shortening -> survival
+LHS très large : pericardial-effusion, wall-motion-score, lvdd, fractional-shortening -> still-alive
+LHS très large : pericardial-effusion, wall-motion-score, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> fractional-shortening
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> lvdd
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> wall-motion-score
+Dégénérée : still-alive, pericardial-effusion, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> epss
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> fractional-shortening
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> lvdd
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, lvdd, epss -> survival
+LHS très large : still-alive, pericardial-effusion, lvdd, epss -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, lvdd, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> survival
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> epss
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> survival
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> still-alive
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> lvdd
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> wall-motion-score
+LHS très large : pericardial-effusion, epss, age-at-heart-attack, fractional-shortening -> survival
+LHS très large : pericardial-effusion, epss, age-at-heart-attack, fractional-shortening -> lvdd
+LHS très large : pericardial-effusion, epss, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : pericardial-effusion, epss, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, fractional-shortening -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, epss -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, survival, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, lvdd, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, lvdd, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> lvdd
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, age-at-heart-attack, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> survival
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> still-alive
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> lvdd
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, epss, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> survival
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, fractional-shortening -> wall-motion-score
+Dégénérée : wall-motion-score, lvdd, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, epss, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, age-at-heart-attack -> still-alive
+Dégénérée : still-alive, pericardial-effusion, wall-motion-score -> still-alive
+Dégénérée : still-alive, pericardial-effusion, wall-motion-score -> still-alive
+Dégénérée : still-alive, wall-motion-score, epss -> still-alive
+Dégénérée : still-alive, pericardial-effusion, wall-motion-score -> still-alive
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> still-alive
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> still-alive
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> lvdd
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, age-at-heart-attack -> fractional-shortening
+Dégénérée : still-alive, lvdd, fractional-shortening -> still-alive
+Dégénérée : still-alive, wall-motion-score, fractional-shortening -> still-alive
+Dégénérée : still-alive, lvdd, epss -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, lvdd -> still-alive
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> lvdd
+Dégénérée : still-alive, wall-motion-score, survival -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> pericardial-effusion
+Dégénérée : still-alive, pericardial-effusion, wall-motion-score -> still-alive
+Dégénérée : still-alive, wall-motion-score, age-at-heart-attack -> still-alive
+LHS très large : still-alive, wall-motion-score, lvdd, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, wall-motion-score, lvdd, age-at-heart-attack -> wall-motion-score
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, wall-motion-score, epss, fractional-shortening -> pericardial-effusion
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> fractional-shortening
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> survival
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> age-at-heart-attack
+LHS très large : still-alive, wall-motion-score, lvdd, epss -> wall-motion-score
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> survival
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> age-at-heart-attack
+LHS très large : still-alive, lvdd, epss, fractional-shortening -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, epss -> wall-motion-score
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> survival
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> age-at-heart-attack
+LHS très large : still-alive, pericardial-effusion, wall-motion-score, epss -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, epss -> wall-motion-score
+Dégénérée : still-alive, wall-motion-score, age-at-heart-attack -> still-alive
+
+=== PLAUSIBLE FDs ===
+ -> wall-motion-index
+wall-motion-score, survival -> still-alive
+survival, age-at-heart-attack -> still-alive
+age-at-heart-attack, fractional-shortening -> wall-motion-score
+survival, age-at-heart-attack -> still-alive
+survival, lvdd -> still-alive
+wall-motion-score -> lvdd
+survival, fractional-shortening -> still-alive
+survival, epss -> wall-motion-score
+pericardial-effusion, survival -> wall-motion-score
+survival, epss -> pericardial-effusion
+survival, epss -> fractional-shortening
+pericardial-effusion, fractional-shortening -> wall-motion-score
+survival, epss -> still-alive
+survival, fractional-shortening -> wall-motion-score
+pericardial-effusion, survival -> still-alive
+epss, fractional-shortening -> wall-motion-score
+pericardial-effusion, epss -> wall-motion-score
+epss, age-at-heart-attack -> wall-motion-score
+wall-motion-score, epss -> survival
+wall-motion-score, epss -> still-alive
+wall-motion-score, epss -> age-at-heart-attack
+wall-motion-score, epss -> still-alive
+wall-motion-score, epss -> pericardial-effusion
+wall-motion-score, epss -> fractional-shortening
+wall-motion-score, epss -> still-alive
+still-alive, survival, age-at-heart-attack -> pericardial-effusion
+still-alive, survival, age-at-heart-attack -> fractional-shortening
+still-alive, survival, age-at-heart-attack -> epss
+still-alive, survival, age-at-heart-attack -> lvdd
+still-alive, survival, age-at-heart-attack -> wall-motion-score
+still-alive, survival, age-at-heart-attack -> wall-motion-score
+still-alive, survival, age-at-heart-attack -> wall-motion-score
+wall-motion-score, survival, epss -> age-at-heart-attack
+wall-motion-score, survival, epss -> still-alive
+wall-motion-score, survival, epss -> lvdd
+wall-motion-score, survival, epss -> still-alive
+wall-motion-score, survival, age-at-heart-attack -> pericardial-effusion
+wall-motion-score, survival, age-at-heart-attack -> fractional-shortening
+wall-motion-score, survival, age-at-heart-attack -> epss
+wall-motion-score, survival, age-at-heart-attack -> lvdd
+wall-motion-score, survival, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> survival
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> fractional-shortening
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> epss
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> lvdd
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, survival -> age-at-heart-attack
+pericardial-effusion, wall-motion-score, survival -> still-alive
+pericardial-effusion, wall-motion-score, survival -> fractional-shortening
+pericardial-effusion, wall-motion-score, survival -> epss
+pericardial-effusion, wall-motion-score, survival -> lvdd
+pericardial-effusion, wall-motion-score, survival -> still-alive
+still-alive, survival, epss -> age-at-heart-attack
+still-alive, survival, epss -> lvdd
+still-alive, survival, epss -> wall-motion-score
+still-alive, survival, epss -> wall-motion-score
+still-alive, survival, epss -> age-at-heart-attack
+still-alive, survival, epss -> lvdd
+still-alive, survival, epss -> wall-motion-score
+still-alive, survival, epss -> wall-motion-score
+survival, lvdd, fractional-shortening -> age-at-heart-attack
+survival, lvdd, fractional-shortening -> pericardial-effusion
+survival, lvdd, fractional-shortening -> epss
+survival, lvdd, fractional-shortening -> wall-motion-score
+survival, lvdd, fractional-shortening -> wall-motion-score
+survival, lvdd, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> survival
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> pericardial-effusion
+wall-motion-score, age-at-heart-attack, fractional-shortening -> epss
+wall-motion-score, age-at-heart-attack, fractional-shortening -> lvdd
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+pericardial-effusion, wall-motion-score, survival -> age-at-heart-attack
+pericardial-effusion, wall-motion-score, survival -> still-alive
+pericardial-effusion, wall-motion-score, survival -> fractional-shortening
+pericardial-effusion, wall-motion-score, survival -> epss
+pericardial-effusion, wall-motion-score, survival -> lvdd
+pericardial-effusion, wall-motion-score, survival -> still-alive
+survival, epss, age-at-heart-attack -> lvdd
+survival, epss, age-at-heart-attack -> wall-motion-score
+survival, epss, age-at-heart-attack -> wall-motion-score
+survival, epss, age-at-heart-attack -> still-alive
+wall-motion-score, epss, age-at-heart-attack -> survival
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+wall-motion-score, epss, age-at-heart-attack -> pericardial-effusion
+wall-motion-score, epss, age-at-heart-attack -> fractional-shortening
+wall-motion-score, epss, age-at-heart-attack -> lvdd
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+survival, lvdd, age-at-heart-attack -> pericardial-effusion
+survival, lvdd, age-at-heart-attack -> fractional-shortening
+survival, lvdd, age-at-heart-attack -> epss
+survival, lvdd, age-at-heart-attack -> wall-motion-score
+survival, lvdd, age-at-heart-attack -> wall-motion-score
+survival, lvdd, age-at-heart-attack -> wall-motion-score
+survival, lvdd, age-at-heart-attack -> still-alive
+wall-motion-score, survival, fractional-shortening -> age-at-heart-attack
+wall-motion-score, survival, fractional-shortening -> still-alive
+wall-motion-score, survival, fractional-shortening -> pericardial-effusion
+wall-motion-score, survival, fractional-shortening -> epss
+wall-motion-score, survival, fractional-shortening -> lvdd
+wall-motion-score, survival, fractional-shortening -> still-alive
+wall-motion-score, fractional-shortening -> survival
+wall-motion-score, fractional-shortening -> still-alive
+wall-motion-score, fractional-shortening -> age-at-heart-attack
+wall-motion-score, fractional-shortening -> still-alive
+wall-motion-score, fractional-shortening -> pericardial-effusion
+wall-motion-score, fractional-shortening -> epss
+wall-motion-score, fractional-shortening -> still-alive
+pericardial-effusion, survival, lvdd -> age-at-heart-attack
+pericardial-effusion, survival, lvdd -> fractional-shortening
+pericardial-effusion, survival, lvdd -> epss
+pericardial-effusion, survival, lvdd -> wall-motion-score
+pericardial-effusion, survival, lvdd -> wall-motion-score
+pericardial-effusion, survival, lvdd -> still-alive
+survival, age-at-heart-attack, fractional-shortening -> pericardial-effusion
+survival, age-at-heart-attack, fractional-shortening -> epss
+survival, age-at-heart-attack, fractional-shortening -> lvdd
+survival, age-at-heart-attack, fractional-shortening -> wall-motion-score
+survival, age-at-heart-attack, fractional-shortening -> wall-motion-score
+survival, age-at-heart-attack, fractional-shortening -> still-alive
+lvdd, age-at-heart-attack, fractional-shortening -> survival
+lvdd, age-at-heart-attack, fractional-shortening -> still-alive
+lvdd, age-at-heart-attack, fractional-shortening -> still-alive
+lvdd, age-at-heart-attack, fractional-shortening -> pericardial-effusion
+lvdd, age-at-heart-attack, fractional-shortening -> epss
+lvdd, age-at-heart-attack, fractional-shortening -> wall-motion-score
+lvdd, age-at-heart-attack, fractional-shortening -> wall-motion-score
+lvdd, age-at-heart-attack, fractional-shortening -> still-alive
+lvdd, epss, age-at-heart-attack -> survival
+lvdd, epss, age-at-heart-attack -> still-alive
+lvdd, epss, age-at-heart-attack -> still-alive
+lvdd, epss, age-at-heart-attack -> pericardial-effusion
+lvdd, epss, age-at-heart-attack -> fractional-shortening
+lvdd, epss, age-at-heart-attack -> wall-motion-score
+lvdd, epss, age-at-heart-attack -> wall-motion-score
+lvdd, epss, age-at-heart-attack -> still-alive
+wall-motion-score, survival, age-at-heart-attack -> pericardial-effusion
+wall-motion-score, survival, age-at-heart-attack -> fractional-shortening
+wall-motion-score, survival, age-at-heart-attack -> epss
+wall-motion-score, survival, age-at-heart-attack -> lvdd
+wall-motion-score, survival, age-at-heart-attack -> still-alive
+pericardial-effusion, survival, age-at-heart-attack -> fractional-shortening
+pericardial-effusion, survival, age-at-heart-attack -> epss
+pericardial-effusion, survival, age-at-heart-attack -> lvdd
+pericardial-effusion, survival, age-at-heart-attack -> wall-motion-score
+pericardial-effusion, survival, age-at-heart-attack -> wall-motion-score
+pericardial-effusion, survival, age-at-heart-attack -> still-alive
+still-alive, epss, age-at-heart-attack -> survival
+still-alive, epss, age-at-heart-attack -> pericardial-effusion
+still-alive, epss, age-at-heart-attack -> fractional-shortening
+still-alive, epss, age-at-heart-attack -> lvdd
+still-alive, epss, age-at-heart-attack -> wall-motion-score
+still-alive, epss, age-at-heart-attack -> wall-motion-score
+wall-motion-score, epss, age-at-heart-attack -> survival
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+wall-motion-score, epss, age-at-heart-attack -> pericardial-effusion
+wall-motion-score, epss, age-at-heart-attack -> fractional-shortening
+wall-motion-score, epss, age-at-heart-attack -> lvdd
+wall-motion-score, epss, age-at-heart-attack -> still-alive
+wall-motion-score, survival, epss -> age-at-heart-attack
+wall-motion-score, survival, epss -> still-alive
+wall-motion-score, survival, epss -> lvdd
+wall-motion-score, survival, epss -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> survival
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> fractional-shortening
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> epss
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> lvdd
+pericardial-effusion, wall-motion-score, age-at-heart-attack -> still-alive
+survival, lvdd, epss -> age-at-heart-attack
+survival, lvdd, epss -> wall-motion-score
+survival, lvdd, epss -> wall-motion-score
+survival, lvdd, epss -> still-alive
+wall-motion-score, lvdd, epss -> survival
+wall-motion-score, lvdd, epss -> still-alive
+wall-motion-score, lvdd, epss -> age-at-heart-attack
+wall-motion-score, lvdd, epss -> still-alive
+wall-motion-score, lvdd, epss -> pericardial-effusion
+wall-motion-score, lvdd, epss -> fractional-shortening
+wall-motion-score, lvdd, epss -> still-alive
+pericardial-effusion, lvdd, age-at-heart-attack -> survival
+pericardial-effusion, lvdd, age-at-heart-attack -> still-alive
+pericardial-effusion, lvdd, age-at-heart-attack -> still-alive
+pericardial-effusion, lvdd, age-at-heart-attack -> fractional-shortening
+pericardial-effusion, lvdd, age-at-heart-attack -> epss
+pericardial-effusion, lvdd, age-at-heart-attack -> wall-motion-score
+pericardial-effusion, lvdd, age-at-heart-attack -> wall-motion-score
+pericardial-effusion, lvdd, age-at-heart-attack -> wall-motion-score
+pericardial-effusion, lvdd, age-at-heart-attack -> still-alive
+wall-motion-score, survival, fractional-shortening -> age-at-heart-attack
+wall-motion-score, survival, fractional-shortening -> still-alive
+wall-motion-score, survival, fractional-shortening -> pericardial-effusion
+wall-motion-score, survival, fractional-shortening -> epss
+wall-motion-score, survival, fractional-shortening -> lvdd
+wall-motion-score, survival, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> survival
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+wall-motion-score, age-at-heart-attack, fractional-shortening -> pericardial-effusion
+wall-motion-score, age-at-heart-attack, fractional-shortening -> epss
+wall-motion-score, age-at-heart-attack, fractional-shortening -> lvdd
+wall-motion-score, age-at-heart-attack, fractional-shortening -> still-alive
+epss, age-at-heart-attack, fractional-shortening -> still-alive
+still-alive, epss, age-at-heart-attack -> fractional-shortening
+pericardial-effusion, wall-motion-score, fractional-shortening -> still-alive
+still-alive, pericardial-effusion, lvdd -> wall-motion-score
+wall-motion-score, lvdd, epss -> fractional-shortening
+wall-motion-score, lvdd, fractional-shortening -> epss
+wall-motion-score, age-at-heart-attack -> still-alive
+wall-motion-score, survival, lvdd -> still-alive
+pericardial-effusion, lvdd, epss -> fractional-shortening
+pericardial-effusion, lvdd, fractional-shortening -> epss
+pericardial-effusion, survival, fractional-shortening -> epss
+wall-motion-score, epss, fractional-shortening -> still-alive
+wall-motion-score, lvdd, fractional-shortening -> still-alive
+still-alive, pericardial-effusion, lvdd -> wall-motion-score
+pericardial-effusion, wall-motion-score, epss -> still-alive
+wall-motion-score, lvdd, fractional-shortening -> still-alive
+pericardial-effusion, age-at-heart-attack, fractional-shortening -> still-alive
+wall-motion-score, lvdd, epss -> still-alive
+still-alive, survival, lvdd -> wall-motion-score
+still-alive, epss, age-at-heart-attack -> fractional-shortening
+still-alive, age-at-heart-attack, fractional-shortening -> epss
+epss, age-at-heart-attack, fractional-shortening -> still-alive
+still-alive, pericardial-effusion, fractional-shortening -> epss
+wall-motion-score, lvdd, fractional-shortening -> pericardial-effusion
+pericardial-effusion, wall-motion-score, fractional-shortening -> lvdd
+pericardial-effusion, lvdd, fractional-shortening -> wall-motion-score
+wall-motion-score, lvdd, fractional-shortening -> still-alive
+wall-motion-score, lvdd, age-at-heart-attack -> still-alive
+wall-motion-score, lvdd, epss -> pericardial-effusion
+pericardial-effusion, lvdd, epss -> wall-motion-score
+still-alive, pericardial-effusion, lvdd -> wall-motion-score
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+wall-motion-score, lvdd, age-at-heart-attack -> still-alive
+wall-motion-score, lvdd, age-at-heart-attack -> still-alive
+pericardial-effusion, wall-motion-score, fractional-shortening -> epss
+wall-motion-score, age-at-heart-attack -> still-alive
+wall-motion-score, lvdd, epss -> fractional-shortening
+wall-motion-score, survival, lvdd -> still-alive
+still-alive, survival, lvdd -> wall-motion-score
+pericardial-effusion, wall-motion-score, epss -> still-alive
+wall-motion-score, survival -> still-alive
+still-alive, pericardial-effusion, fractional-shortening -> epss
+pericardial-effusion, lvdd, fractional-shortening -> still-alive
+wall-motion-score, survival -> still-alive
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+wall-motion-score, lvdd, age-at-heart-attack -> still-alive
+pericardial-effusion, lvdd, epss -> still-alive
+still-alive, pericardial-effusion, fractional-shortening -> survival
+still-alive, pericardial-effusion, fractional-shortening -> age-at-heart-attack
+still-alive, pericardial-effusion, fractional-shortening -> lvdd
+still-alive, pericardial-effusion, fractional-shortening -> wall-motion-score
+still-alive, pericardial-effusion, fractional-shortening -> wall-motion-score
+still-alive, age-at-heart-attack, fractional-shortening -> survival
+still-alive, age-at-heart-attack, fractional-shortening -> pericardial-effusion
+still-alive, age-at-heart-attack, fractional-shortening -> lvdd
+still-alive, age-at-heart-attack, fractional-shortening -> wall-motion-score
+still-alive, age-at-heart-attack, fractional-shortening -> wall-motion-score
+still-alive, pericardial-effusion, age-at-heart-attack -> survival
+still-alive, pericardial-effusion, age-at-heart-attack -> fractional-shortening
+still-alive, pericardial-effusion, age-at-heart-attack -> epss
+still-alive, pericardial-effusion, age-at-heart-attack -> lvdd
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+still-alive, wall-motion-score, epss -> survival
+still-alive, wall-motion-score, epss -> age-at-heart-attack
+still-alive, wall-motion-score, epss -> pericardial-effusion
+still-alive, wall-motion-score, epss -> fractional-shortening
+still-alive, wall-motion-score, epss -> lvdd
+still-alive, pericardial-effusion, age-at-heart-attack -> survival
+still-alive, pericardial-effusion, age-at-heart-attack -> fractional-shortening
+still-alive, pericardial-effusion, age-at-heart-attack -> epss
+still-alive, pericardial-effusion, age-at-heart-attack -> lvdd
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+still-alive, pericardial-effusion, age-at-heart-attack -> wall-motion-score
+still-alive, wall-motion-score, epss -> pericardial-effusion
+still-alive, wall-motion-score, epss -> pericardial-effusion
+still-alive, wall-motion-score, epss -> survival
+still-alive, wall-motion-score, epss -> age-at-heart-attack
+still-alive, wall-motion-score, epss -> fractional-shortening
+still-alive, wall-motion-score, epss -> lvdd
+still-alive, wall-motion-score, epss -> survival
+still-alive, wall-motion-score, epss -> age-at-heart-attack
+still-alive, wall-motion-score, epss -> fractional-shortening
+still-alive, wall-motion-score, epss -> lvdd
