@@ -20,11 +20,119 @@ GROQ_API_KEY = "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"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 LABELS = ["meaningful", "accidental", "encoding-based", "degenerate", "unlikely"]
 
+# Datasets disponibles
+DATASETS = {
+    "iris": {
+        "csv": "data/iris/iris.csv",
+        "fds": "data/iris/iris_fds.txt",
+        "description": "Iris dataset (5 cols, 150 rows, 4 FDs)"
+    },
+    "balance-scale": {
+        "csv": "data/balance+scale/balance-scale.csv",
+        "fds": "data/balance+scale/balance-scale_fds.txt",
+        "description": "Balance Scale (5 cols, 625 rows, 1 FD)"
+    },
+    "abalone": {
+        "csv": "data/abalone/abalone.csv",
+        "fds": "data/abalone/abalone_fds.txt",
+        "description": "Abalone (9 cols, 4,177 rows, 137 FDs)"
+    },
+    "breast-cancer-wisconsin": {
+        "csv": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin.csv",
+        "fds": "data/breast+cancer+wisconsin+original/breast-cancer-wisconsin_fds.txt",
+        "description": "Breast Cancer Wisconsin (11 cols, 699 rows, 46 FDs)"
+    },
+    "bridges": {
+        "csv": "data/pittsburgh+bridges/bridges.csv",
+        "fds": "data/pittsburgh+bridges/bridges_fds.txt",
+        "description": "Pittsburgh Bridges (13 cols, 108 rows, 142 FDs)"
+    },
+    "adult": {
+        "csv": "data/adult/adult.csv",
+        "fds": "data/adult/adult_fds.txt",
+        "description": "Adult Census (14 cols, 48,842 rows, 78 FDs)"
+    },
+    "nursery": {
+        "csv": "data/nursery/nursery.csv",
+        "fds": "data/nursery/nursery_fds.txt",
+        "description": "Nursery (9 cols, 12,960 rows, 1 FD)"
+    },
+    "echocardiogram": {
+        "csv": "data/echocardiogram/echocardiogram.csv",
+        "fds": "data/echocardiogram/echocardiogram_fds.txt",
+        "description": "Echocardiogram (13 cols, 132 rows, 538 FDs)"
+    },
+}
+
 st.set_page_config(page_title="FD Analysis Suite", layout="wide", page_icon="🔍")
 
 # ==================
 # FONCTIONS UTILITAIRES
 # ==================
+
+def get_dataset_files(dataset_choice, csv_upload=None, fd_upload=None):
+    """
+    Retourne les chemins CSV et FD selon le choix de l'utilisateur.
+    Returns: (csv_path, fd_path, is_temp) où is_temp indique si les fichiers doivent être supprimés
+    """
+    if dataset_choice == "Upload custom files":
+        # Utiliser les fichiers uploadés
+        if not csv_upload or not fd_upload:
+            return None, None, False
+        
+        # Créer des fichiers temporaires
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as f:
+            f.write(csv_upload.getbuffer())
+            csv_path = Path(f.name)
+        
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as f:
+            f.write(fd_upload.getbuffer())
+            fd_path = Path(f.name)
+        
+        return csv_path, fd_path, True
+    else:
+        # Utiliser un dataset préconfiguré
+        dataset_info = DATASETS[dataset_choice]
+        csv_path = Path(dataset_info["csv"])
+        fd_path = Path(dataset_info["fds"])
+        
+        # Vérifier que les fichiers existent
+        if not csv_path.exists() or not fd_path.exists():
+            st.error(f"❌ Dataset files not found: {csv_path} or {fd_path}")
+            return None, None, False
+        
+        return csv_path, fd_path, False
+
+def dataset_selector(key_prefix):
+    """
+    Widget de sélection de dataset réutilisable.
+    Returns: (dataset_choice, csv_file, fd_file)
+    """
+    st.markdown("### 📁 Select Dataset")
+    
+    dataset_options = ["Upload custom files"] + list(DATASETS.keys())
+    
+    dataset_choice = st.selectbox(
+        "Choose dataset:",
+        dataset_options,
+        key=f"{key_prefix}_dataset_select",
+        format_func=lambda x: x if x == "Upload custom files" else f"{x} - {DATASETS[x]['description']}"
+    )
+    
+    csv_file = None
+    fd_file = None
+    
+    if dataset_choice == "Upload custom files":
+        col1, col2 = st.columns(2)
+        with col1:
+            csv_file = st.file_uploader("Upload CSV file", type=["csv"], key=f"{key_prefix}_csv")
+        with col2:
+            fd_file = st.file_uploader("Upload FD file", type=["txt", "json"], key=f"{key_prefix}_fd")
+    else:
+        # Afficher les informations du dataset
+        st.info(f"📊 **{dataset_choice}**: {DATASETS[dataset_choice]['description']}")
+    
+    return dataset_choice, csv_file, fd_file
 
 def groq_classify(fd_text):
     """Classification avec Groq API"""
@@ -263,6 +371,14 @@ with st.sidebar:
         ]
     )
     
+    st.markdown("---")
+    st.markdown("### 📚 Available Datasets")
+    st.markdown(f"**{len(DATASETS)}** pre-loaded datasets")
+    
+    with st.expander("View all datasets"):
+        for name, info in DATASETS.items():
+            st.markdown(f"**{name}**")
+            st.caption(info['description'])
 
 # ==================
 # INITIALISATION
@@ -281,61 +397,54 @@ if task == "Task 1: FD Analysis":
     st.header("📊 Task 1: FD Analysis")
     st.markdown("Analyze functional dependencies from algorithmic discovery (TANE/Metanome)")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        csv_file = st.file_uploader("Upload CSV file", type=["csv"], key="task1_csv")
-    with col2:
-        fd_file = st.file_uploader("Upload FD file", type=["txt", "json"], key="task1_fd")
+    # Sélecteur de dataset
+    dataset_choice, csv_file, fd_file = dataset_selector("task1")
     
-    if csv_file and fd_file:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as f:
-            f.write(csv_file.getbuffer())
-            csv_path = Path(f.name)
+    # Bouton d'analyse
+    can_analyze = (dataset_choice != "Upload custom files") or (csv_file and fd_file)
+    
+    if can_analyze and st.button("🔍 Analyze FDs", type="primary"):
+        csv_path, fd_path, is_temp = get_dataset_files(dataset_choice, csv_file, fd_file)
         
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as f:
-            f.write(fd_file.getbuffer())
-            fd_path = Path(f.name)
-        
-        try:
-            fds = parse_fds(fd_path, csv_path)
-            
-            if fds:
-                st.success(f"✅ Found **{len(fds)}** FDs")
+        if csv_path and fd_path:
+            try:
+                fds = parse_fds(fd_path, csv_path)
                 
-                # Afficher les FDs
-                st.markdown("### Discovered FDs")
-                for i, (lhs, rhs) in enumerate(fds, 1):
-                    st.code(f"{i}. {', '.join(lhs)} → {rhs}")
-                
-                # Analyse
-                with st.spinner("Analyzing..."):
-                    analyze_fds(fds)
-                    save_fds(fds, fd_path, filename="results.txt")
-                
-                # Résultats
-                results_file = fd_path.parent / "results.txt"
-                if results_file.exists():
-                    with st.expander("📊 View Analysis Details"):
-                        with open(results_file, "r") as f:
-                            st.text(analyze_fds(fds))
+                if fds:
+                    st.success(f"✅ Found **{len(fds)}** FDs")
+                    
+                    # Afficher les FDs
+                    st.markdown("### Discovered FDs")
+                    
+                    with st.expander("View all FDs", expanded=len(fds) <= 20):
+                        for i, (lhs, rhs) in enumerate(fds, 1):
+                            st.code(f"{i}. {', '.join(lhs)} → {rhs}")
+                    
+                    # Analyse
+                    with st.spinner("Analyzing..."):
+                        analysis_result = analyze_fds(fds)
+                    
+                    # Résultats
+                    with st.expander("📊 View Analysis Details", expanded=True):
+                        st.text(analysis_result)
                     
                     # Téléchargement
-                    with open(results_file, "r") as f:
-                        st.download_button(
-                            label="📥 Download Analysis",
-                            data=f.read(),
-                            file_name="fd_analysis_results.txt",
-                            mime="text/plain"
-                        )
-            else:
-                st.warning("⚠️ No FDs found")
-        
-        except Exception as e:
-            st.error(f"❌ Error: {e}")
-        
-        finally:
-            os.unlink(csv_path)
-            os.unlink(fd_path)
+                    st.download_button(
+                        label="📥 Download Analysis",
+                        data=analysis_result,
+                        file_name=f"fd_analysis_{dataset_choice}.txt",
+                        mime="text/plain"
+                    )
+                else:
+                    st.warning("⚠️ No FDs found")
+            
+            except Exception as e:
+                st.error(f"❌ Error: {e}")
+            
+            finally:
+                if is_temp:
+                    os.unlink(csv_path)
+                    os.unlink(fd_path)
 
 # ==================
 # TASK 2: LLM EVALUATION
@@ -343,21 +452,34 @@ if task == "Task 1: FD Analysis":
 elif task == "Task 2: LLM Evaluation":
     st.header("🤖 Task 2: LLM Evaluation")
     st.markdown("Evaluate FDs using LLM and compare with human judgment")
-    fd_file = st.file_uploader("Upload FD file", type=["txt", "json"], key="task2_fd")
-
-    if fd_file:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as f:
-            f.write(fd_file.getbuffer())
-            fd_path = Path(f.name)
+    
+    # Sélecteur de dataset
+    dataset_choice, csv_file, fd_file = dataset_selector("task2")
+    
+    can_evaluate = (dataset_choice != "Upload custom files") or fd_file
+    
+    if can_evaluate:
+        _, fd_path, is_temp = get_dataset_files(dataset_choice, csv_file, fd_file)
         
-        try:
-                from task2 import extract_fds, query_groq, LABELS   # adjust import path if needed
-
-                dataset_name = fd_path.stem
-
-                fds_to_eval = extract_fds(fd_path, k=3)
-
-                if fds_to_eval:
+        if fd_path:
+            try:
+                # Parse FDs
+                if dataset_choice != "Upload custom files":
+                    csv_path = Path(DATASETS[dataset_choice]["csv"])
+                    fds = parse_fds(fd_path, csv_path)
+                else:
+                    # Pour les uploads, on a besoin du CSV aussi
+                    st.warning("⚠️ For custom uploads, please also provide the CSV file")
+                    fds = []
+                
+                if fds:
+                    # Nombre de FDs à évaluer
+                    num_to_eval = st.slider("Number of FDs to evaluate", 3, min(20, len(fds)), 6)
+                    
+                    # Sélection: plausible et suspicieuses
+                    # Simple: prendre les premières N
+                    fds_to_eval = [f"{', '.join(lhs)} → {rhs}" for lhs, rhs in fds[:num_to_eval]]
+                    
                     # Initialiser
                     if not st.session_state.eval_data or len(st.session_state.eval_data) != len(fds_to_eval):
                         st.session_state.eval_data = [
@@ -387,8 +509,11 @@ elif task == "Task 2: LLM Evaluation":
                             else:
                                 if st.button("▶️ Run", key=f"g{idx}", type="primary"):
                                     with st.spinner("Calling API..."):
-                                        label = query_groq(item["fd"], dataset_name)
-                                        item["groq"] = label
+                                        result = groq_classify(item["fd"])
+                                        if result["success"]:
+                                            item["groq"] = result["label"]
+                                        else:
+                                            item["groq"] = f"ERROR: {result['error']}"
                                         st.rerun()
                         
                         with col2:
@@ -438,35 +563,29 @@ elif task == "Task 2: LLM Evaluation":
                             st.metric("Accuracy", f"{matches/total*100:.1f}%")
                         
                         # Save
-                        if st.button("💾 Save Results", type="primary"):
-                            output = {
-                                "model": GROQ_MODEL,
-                                "timestamp": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                "evaluations": results_data,
-                                "accuracy": matches/total*100
-                            }
-                            
-                            output_file = fd_path.parent / "task2_results.json"
-                            with open(output_file, 'w') as f:
-                                json.dump(output, f, indent=2)
-                            
-                            st.success("✅ Saved!")
-                            
-                            with open(output_file, 'r') as f:
-                                st.download_button(
-                                    "📥 Download JSON",
-                                    data=f.read(),
-                                    file_name="task2_evaluation.json",
-                                    mime="application/json"
-                                )
+                        output = {
+                            "dataset": dataset_choice,
+                            "model": GROQ_MODEL,
+                            "timestamp": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "evaluations": results_data,
+                            "accuracy": matches/total*100
+                        }
+                        
+                        st.download_button(
+                            "📥 Download Results",
+                            data=json.dumps(output, indent=2),
+                            file_name=f"task2_evaluation_{dataset_choice}.json",
+                            mime="application/json"
+                        )
                     else:
                         st.info("⏳ Complete all evaluations")
-        
-        except Exception as e:
-            st.error(f"❌ Error: {e}")
-        
-        finally:
-            os.unlink(fd_path)
+            
+            except Exception as e:
+                st.error(f"❌ Error: {e}")
+            
+            finally:
+                if is_temp:
+                    os.unlink(fd_path)
 
 # ==================
 # TASK 3: LLM DISCOVERY
@@ -475,16 +594,37 @@ elif task == "Task 3: LLM Discovery":
     st.header("🔮 Task 3: LLM-Based FD Discovery")
     st.markdown("Discover FDs directly from data using LLM reasoning")
     
-    csv_file = st.file_uploader("Upload CSV file", type=["csv"], key="task3_csv")
+    # Sélecteur de dataset (CSV seulement pour Task 3)
+    st.markdown("### 📁 Select Dataset")
     
-    if csv_file:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as f:
-            f.write(csv_file.getbuffer())
-            csv_path = Path(f.name)
-        
+    dataset_options = ["Upload custom file"] + list(DATASETS.keys())
+    
+    dataset_choice = st.selectbox(
+        "Choose dataset:",
+        dataset_options,
+        key="task3_dataset_select",
+        format_func=lambda x: x if x == "Upload custom file" else f"{x} - {DATASETS[x]['description']}"
+    )
+    
+    csv_file = None
+    csv_path = None
+    
+    if dataset_choice == "Upload custom file":
+        csv_file = st.file_uploader("Upload CSV file", type=["csv"], key="task3_csv")
+        if csv_file:
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as f:
+                f.write(csv_file.getbuffer())
+                csv_path = Path(f.name)
+            is_temp = True
+    else:
+        csv_path = Path(DATASETS[dataset_choice]["csv"])
+        is_temp = False
+        st.info(f"📊 **{dataset_choice}**: {DATASETS[dataset_choice]['description']}")
+    
+    if csv_path and csv_path.exists():
         try:
             df = pd.read_csv(csv_path, on_bad_lines='skip')
-            dataset_name = csv_file.name.replace('.csv', '')
+            dataset_name = dataset_choice if dataset_choice != "Upload custom file" else csv_file.name.replace('.csv', '')
             
             st.success(f"✅ Loaded dataset: **{dataset_name}** ({len(df)} rows, {len(df.columns)} columns)")
             
@@ -559,7 +699,7 @@ elif task == "Task 3: LLM Discovery":
                             st.download_button(
                                 "📥 Download Results",
                                 data=json.dumps(output, indent=2),
-                                file_name="task3_discovery.json",
+                                file_name=f"task3_discovery_{dataset_name}.json",
                                 mime="application/json"
                             )
                     else:
@@ -569,7 +709,8 @@ elif task == "Task 3: LLM Discovery":
             st.error(f"❌ Error: {e}")
         
         finally:
-            os.unlink(csv_path)
+            if is_temp and csv_path:
+                os.unlink(csv_path)
 
 # ==================
 # TASK 4: HYBRID SYSTEM
@@ -585,26 +726,19 @@ elif task == "Task 4: Hybrid System":
     
     st.markdown("---")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        csv_file = st.file_uploader("Upload CSV file", type=["csv"], key="task4_csv")
-    with col2:
-        fd_file = st.file_uploader("Upload FD file", type=["txt", "json"], key="task4_fd")
+    # Sélecteur de dataset
+    dataset_choice, csv_file, fd_file = dataset_selector("task4")
     
-    if csv_file and fd_file:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as f:
-            f.write(csv_file.getbuffer())
-            csv_path = Path(f.name)
+    can_run = (dataset_choice != "Upload custom files") or (csv_file and fd_file)
+    
+    if can_run and st.button("🚀 Run Hybrid Pipeline", type="primary"):
+        csv_path, fd_path, is_temp = get_dataset_files(dataset_choice, csv_file, fd_file)
         
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as f:
-            f.write(fd_file.getbuffer())
-            fd_path = Path(f.name)
-        
-        try:
-            df = pd.read_csv(csv_path, on_bad_lines='skip')
-            dataset_name = csv_file.name.replace('.csv', '')
-            
-            if st.button("🚀 Run Hybrid Pipeline", type="primary"):
+        if csv_path and fd_path:
+            try:
+                df = pd.read_csv(csv_path, on_bad_lines='skip')
+                dataset_name = dataset_choice if dataset_choice != "Upload custom files" else csv_file.name.replace('.csv', '')
+                
                 progress = st.progress(0)
                 status = st.empty()
                 
@@ -622,7 +756,12 @@ elif task == "Task 4: Hybrid System":
                 categorized = {cat: [] for cat in ["meaningful", "accidental", "encoding", "degenerate", "suspicious"]}
                 ranked = []
                 
-                for lhs, rhs in fds:
+                # Limiter le nombre de FDs pour éviter trop d'appels API
+                max_fds_to_evaluate = min(50, len(fds))
+                fds_to_evaluate = fds[:max_fds_to_evaluate]
+                
+                progress_step = 0
+                for i, (lhs, rhs) in enumerate(fds_to_evaluate):
                     fd_str = f"{', '.join(lhs)} → {rhs}"
                     result = groq_classify(fd_str)
                     
@@ -632,7 +771,15 @@ elif task == "Task 4: Hybrid System":
                     else:
                         categorized["suspicious"].append((lhs, rhs))
                     
+                    # Update progress
+                    progress_step = 30 + int((i / max_fds_to_evaluate) * 40)
+                    progress.progress(progress_step)
+                    
                     time.sleep(0.3)
+                
+                # Les FDs non évaluées vont dans "suspicious"
+                if len(fds) > max_fds_to_evaluate:
+                    categorized["suspicious"].extend(fds[max_fds_to_evaluate:])
                 
                 # Scoring
                 category_scores = {"meaningful": 10, "encoding": 5, "accidental": 2, "suspicious": 1, "degenerate": 0}
@@ -645,14 +792,15 @@ elif task == "Task 4: Hybrid System":
                 
                 ranked.sort(key=lambda x: x["score"], reverse=True)
                 
-                st.success(f"✅ Phase 2: Categorized FDs")
+                st.success(f"✅ Phase 2: Categorized {max_fds_to_evaluate} FDs")
                 
                 # PHASE 3: Verification
                 status.info("📊 PHASE 3: Statistical verification...")
                 progress.progress(70)
                 
                 verified = []
-                for item in ranked:
+                # Vérifier seulement le top 30
+                for item in ranked[:30]:
                     lhs, rhs = item["fd"]
                     validity = check_fd_validity(df, lhs, rhs, threshold=0.95)
                     
@@ -679,7 +827,7 @@ elif task == "Task 4: Hybrid System":
                 with col2:
                     st.metric("Meaningful", len(categorized["meaningful"]))
                 with col3:
-                    st.metric("Verified", verified_count)
+                    st.metric("Verified (Top 30)", verified_count)
                 with col4:
                     reduction = (raw_count - verified_count) / raw_count * 100 if raw_count > 0 else 0
                     st.metric("Reduction", f"{reduction:.1f}%")
@@ -705,7 +853,7 @@ elif task == "Task 4: Hybrid System":
                 with col2:
                     st.markdown("**⚠️ Trade-offs:**")
                     st.markdown(f"""
-                    - Filtered {raw_count - verified_count} FDs
+                    - Evaluated only top {max_fds_to_evaluate} FDs (API limits)
                     - LLM adds latency (~0.5s/FD)
                     - Subjective categorization
                     - API costs for large datasets
@@ -718,6 +866,7 @@ elif task == "Task 4: Hybrid System":
                     "timestamp": pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "phases": {
                         "phase1_raw": raw_count,
+                        "phase2_evaluated": max_fds_to_evaluate,
                         "phase2_categorized": {k: len(v) for k, v in categorized.items()},
                         "phase3_verified": verified_count
                     },
@@ -727,16 +876,17 @@ elif task == "Task 4: Hybrid System":
                 st.download_button(
                     "📥 Download Full Results",
                     data=json.dumps(st.session_state.task4_results, indent=2),
-                    file_name="task4_hybrid_results.json",
+                    file_name=f"task4_hybrid_{dataset_name}.json",
                     mime="application/json"
                 )
-        
-        except Exception as e:
-            st.error(f"❌ Error: {e}")
-        
-        finally:
-            os.unlink(csv_path)
-            os.unlink(fd_path)
+            
+            except Exception as e:
+                st.error(f"❌ Error: {e}")
+            
+            finally:
+                if is_temp:
+                    os.unlink(csv_path)
+                    os.unlink(fd_path)
 
 # Footer
 st.markdown("---")
