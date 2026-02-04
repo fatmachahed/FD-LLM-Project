@@ -17,7 +17,10 @@ from task2 import extract_fds, query_groq, LABELS
 # ==================
 # CONFIGURATION
 # ==================
-GROQ_API_KEY = "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"
+from dotenv import load_dotenv
+
+load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = "llama-3.3-70b-versatile"
 LABELS = ["meaningful", "accidental", "encoding-based", "degenerate", "unlikely"]
 
